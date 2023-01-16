@@ -15,5 +15,7 @@ namespace OnlineShop.Data
         }
 
         public DbSet<OnlineShop.Models.Product> Product { get; set; } = default!;
+
+        public DbSet<OnlineShop.Models.Category> Category { get; set; }
     }
 }
