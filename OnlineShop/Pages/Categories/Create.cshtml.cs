@@ -36,7 +36,7 @@ namespace OnlineShop.Pages.Categories
                 return Page();
             }
 
-            _context.Category.Add(Category);
+            _context.Categories.Add(Category);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

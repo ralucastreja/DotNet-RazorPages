@@ -8,8 +8,9 @@ namespace OnlineShop.Models
 
         [Required(ErrorMessage = "Please enter a category name")]
         [Display(Name = "Category Name")]
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
 
-        public ICollection<Product>? Products { get; set; } //navigation property
+        [Display(Name = "Categories")]
+        public List<Product_Category> Product_Categories { get; set; } //navigation property
     }
 }

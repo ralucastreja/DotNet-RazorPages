@@ -25,12 +25,12 @@ namespace OnlineShop.Pages.Categories
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Category == null)
+            if (id == null || _context.Categories == null)
             {
                 return NotFound();
             }
 
-            var category =  await _context.Category.FirstOrDefaultAsync(m => m.ID == id);
+            var category =  await _context.Categories.FirstOrDefaultAsync(m => m.ID == id);
             if (category == null)
             {
                 return NotFound();
@@ -71,7 +71,7 @@ namespace OnlineShop.Pages.Categories
 
         private bool CategoryExists(int id)
         {
-          return _context.Category.Any(e => e.ID == id);
+          return _context.Categories.Any(e => e.ID == id);
         }
     }
 }

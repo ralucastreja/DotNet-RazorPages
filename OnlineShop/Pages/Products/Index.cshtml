@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "/"
 @model OnlineShop.Pages.Products.IndexModel
 
 @{
@@ -23,7 +23,7 @@
                 @Html.DisplayNameFor(model => model.Product[0].Supplier)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Product[0].Categories)
+                @Html.DisplayNameFor(model => model.Product[0].Product_Categories)
             </th>
             <th></th>
         </tr>
@@ -41,7 +41,7 @@
                 @Html.DisplayFor(modelItem => item.Supplier)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.Categories)
+                @Html.DisplayFor(modelItem => item.Product_Categories)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

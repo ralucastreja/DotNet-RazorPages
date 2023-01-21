@@ -6,7 +6,7 @@ namespace OnlineShop.Models
     {
         public int ID { get; set; }
 
-        [Required(ErrorMessage = "Please enter a product name")]
+        [Required(ErrorMessage = "Please enter a product name")] //data adnotations
         [Display(Name = "Product Name")]
         public string Name { get; set; }
 
@@ -15,6 +15,7 @@ namespace OnlineShop.Models
 
         public string? Supplier { get; set; }
 
-        public ICollection<Category>? Categories { get; set; } //navigation property
+        [Display(Name = "Categories")]
+        public List<Product_Category> Product_Categories { get; set; } //navigation property
     }
 }

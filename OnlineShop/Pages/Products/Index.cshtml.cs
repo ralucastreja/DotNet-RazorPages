@@ -20,7 +20,7 @@ namespace OnlineShop.Pages.Products
             if (_context.Product != null)
             {
                 Product = await _context.Product
-                    .Include(b => b.Categories)
+                    .Include(pc => pc.Product_Categories)
                     .ToListAsync();
             }
         }
