@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using OnlineShop.Data;
 using OnlineShop.Models;
 
-namespace OnlineShop.Pages.Products
+namespace OnlineShop.Pages.Categories
 {
     public class CreateModel : PageModel
     {
@@ -22,13 +21,11 @@ namespace OnlineShop.Pages.Products
 
         public IActionResult OnGet()
         {
-            ViewData["Categories"] = new SelectList(_context.Set<Category >(), "ID", "Name");
-
             return Page();
         }
 
         [BindProperty]
-        public Product Product { get; set; }
+        public Category Category { get; set; }
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -39,7 +36,7 @@ namespace OnlineShop.Pages.Products
                 return Page();
             }
 
-            _context.Product.Add(Product);
+            _context.Categories.Add(Category);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

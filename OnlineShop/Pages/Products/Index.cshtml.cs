@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using OnlineShop.Data;
 using OnlineShop.Models;
 
 namespace OnlineShop.Pages.Products
@@ -25,7 +19,9 @@ namespace OnlineShop.Pages.Products
         {
             if (_context.Product != null)
             {
-                Product = await _context.Product.ToListAsync();
+                Product = await _context.Product
+                    .Include(pc => pc.Product_Categories)
+                    .ToListAsync();
             }
         }
     }
